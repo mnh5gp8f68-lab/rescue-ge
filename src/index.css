@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b1220;
+  --card: #111a2e;
+  --card2: #17223a;
+  --border: #22304d;
+  --text: #e6ebf5;
+  --muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.15);
+  --warn-bg: rgba(245, 158, 11, 0.14);
+  --warn-border: rgba(245, 158, 11, 0.55);
+  --warn-text: #fcd34d;
+  --danger-bg: rgba(239, 68, 68, 0.14);
+  --danger-border: rgba(239, 68, 68, 0.6);
+  --danger-text: #fca5a5;
+  --ok-text: #86efac;
+  color-scheme: dark;
+}
+html.light {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --card2: #eef2f9;
+  --border: #d6deeb;
+  --text: #0f172a;
+  --muted: #526077;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --warn-bg: #fff7e6;
+  --warn-border: #f59e0b;
+  --warn-text: #92400e;
+  --danger-bg: #fef2f2;
+  --danger-border: #ef4444;
+  --danger-text: #b91c1c;
+  --ok-text: #15803d;
+  color-scheme: light;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+body { margin: 0; min-height: 100dvh; }
+#root { min-height: 100dvh; }
+
+@layer components {
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.pb-nav { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; }
+.card2 { background: var(--card2); border-radius: 0.875rem; }
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+.hr { border-color: var(--border); }
+
+.warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text); border-radius: 0.875rem; }
+.danger { background: var(--danger-bg); border: 1.5px solid var(--danger-border); color: var(--danger-text); border-radius: 0.875rem; }
+.info { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 0.875rem; }
+
+.input {
+  width: 100%; background: var(--card2); color: var(--text); border: 1px solid var(--border);
+  border-radius: 0.875rem; padding: 0.8rem 1rem; font-size: 17px; outline: none;
+}
+.input:focus { border-color: var(--accent); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 48px;
+  padding: 0 1.1rem; border-radius: 0.875rem; font-weight: 600; background: var(--card2); color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn:active { opacity: 0.8; }
+.pre { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; line-height: 1.5; }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] > summary .chev { transform: rotate(90deg); }
+.chev { transition: transform 0.12s; }
+
+select.input { appearance: none; -webkit-appearance: none; }
+
+}
+
+/* Hellmodus: kräftigere Textfarben für Badges und Akzente */
+html.light .text-blue-400 { color: var(--color-blue-700); }
+html.light .text-sky-300, html.light .text-sky-400 { color: var(--color-sky-800); }
+html.light .text-amber-300, html.light .text-amber-400 { color: var(--color-amber-800); }
+html.light .text-red-400 { color: var(--color-red-700); }
+html.light .text-orange-400 { color: var(--color-orange-800); }
+html.light .text-green-400 { color: var(--color-green-800); }
+html.light .text-emerald-300, html.light .text-emerald-400 { color: var(--color-emerald-800); }
+html.light .text-violet-300, html.light .text-violet-400 { color: var(--color-violet-700); }
+html.light .text-teal-400 { color: var(--color-teal-700); }
+html.light .text-pink-400 { color: var(--color-pink-700); }
+html.light .text-slate-300, html.light .text-slate-400 { color: var(--color-slate-700); }

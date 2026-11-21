@@ -1,0 +1,7 @@
+node_modules
+dist
+# Vertrauliche Klartextdaten – niemals in ein öffentliches Repository
+data/
+*.local
+.env
+*.tsbuildinfo
